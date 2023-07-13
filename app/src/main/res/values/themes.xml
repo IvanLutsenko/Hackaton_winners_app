@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="Base.Theme.HackathonWinnersApp" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.HackathonWinnersApp" parent="Base.Theme.HackathonWinnersApp" />
+</resources>
