@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     private fun setWebview() {
         val webView: WebView = findViewById(R.id.webview)
-        val address = "http://ya.ru"
+        val address = "https://web-view.bitkeeper.kz"
 
         with(webView) {
             webViewClient = WebViewClient()
