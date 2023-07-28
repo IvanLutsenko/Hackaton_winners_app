@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.fragment.app.Fragment
 import com.example.hackatonwinnersapp.databinding.DialogOrderLayoutBinding
 
-fun Fragment.initDialogToSetText(positiveAction: (String, String) -> Unit) {
+fun Fragment.initDialogToAddOrder(positiveAction: (String, String) -> Unit) {
 
     val binding = DialogOrderLayoutBinding.inflate(layoutInflater)
     val builder = AlertDialog.Builder(context)

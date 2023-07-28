@@ -58,9 +58,8 @@ private fun OrdersDelegateBindingViewHolder.bindExternally() {
     }
 }
 
-private fun setActionButtonText(status: OrderStatus) =
-    when (status) {
-        NEW -> "назначить"
-        FULFILLED -> "оплатить"
-        else -> null
-    }
+private fun setActionButtonText(status: OrderStatus) = when (status) {
+    NEW -> "назначить"
+    FULFILLED -> "оплатить"
+    else -> null
+}
