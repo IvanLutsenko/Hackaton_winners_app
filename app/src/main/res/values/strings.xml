@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Hackathon winners\' app</string>
+
+    <!-- Main Activity -->
+    <string name="all_orders">Все заказы</string>
+    <string name="all_taxes">Все налоги</string>
 </resources>
