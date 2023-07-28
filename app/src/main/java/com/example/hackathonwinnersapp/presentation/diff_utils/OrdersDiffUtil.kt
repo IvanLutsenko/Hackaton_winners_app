@@ -1,7 +1,7 @@
 package com.example.hackathonwinnersapp.presentation.diff_utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.hackathonwinnersapp.domain.models.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
 
 class OrdersDiffUtil : DiffUtil.ItemCallback<OrderDomainModel>() {
     override fun areItemsTheSame(

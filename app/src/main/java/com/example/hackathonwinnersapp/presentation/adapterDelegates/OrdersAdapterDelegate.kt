@@ -5,7 +5,7 @@ import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.FULFILLED
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.NEW
-import com.example.hackathonwinnersapp.domain.models.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
 import com.example.hackatonwinnersapp.databinding.ItemOrderBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.AdapterDelegateViewBindingViewHolder
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -17,31 +17,32 @@ fun ordersAdapterDelegate(
     onEmployeeClick: ((EmployeeDataModel) -> Unit),
     onOrderClick: ((OrderDomainModel) -> Unit),
     onActionButtonClick: ((OrderDomainModel) -> Unit)
-) =
-    adapterDelegateViewBinding<OrderDomainModel, OrderDomainModel, ItemOrderBinding>(
-        { layoutInflater, root ->
-            ItemOrderBinding.inflate(layoutInflater, root, false)
-        }
-    ) {
-        initListenersExternally(onEmployeeClick, onOrderClick, onActionButtonClick)
-        bind { bindExternally() }
+) = adapterDelegateViewBinding<OrderDomainModel, OrderDomainModel, ItemOrderBinding>(
+    { layoutInflater, root ->
+        ItemOrderBinding.inflate(layoutInflater, root, false)
     }
+) {
+    initListenersExternally(onEmployeeClick, onOrderClick, onActionButtonClick)
+    bind { bindExternally() }
+}
 
 private fun OrdersDelegateBindingViewHolder.initListenersExternally(
     onEmployeeClick: ((EmployeeDataModel) -> Unit)? = null,
     onOrderClick: ((OrderDomainModel) -> Unit)? = null,
     onActionButtonClick: ((OrderDomainModel) -> Unit)? = null
 ) {
-    binding.root.setOnClickListener {
-        onOrderClick?.invoke(item)
-    }
+    with(binding) {
+        root.setOnClickListener {
+            onOrderClick?.invoke(item)
+        }
 
-    binding.employeeName.setOnClickListener {
-        onEmployeeClick?.invoke(item.employee)
-    }
+        employeeName.setOnClickListener {
+            onEmployeeClick?.invoke(item.employee)
+        }
 
-    binding.orderActionButton.setOnClickListener {
-        onActionButtonClick?.invoke(item)
+        orderActionButton.setOnClickListener {
+            onActionButtonClick?.invoke(item)
+        }
     }
 }
 

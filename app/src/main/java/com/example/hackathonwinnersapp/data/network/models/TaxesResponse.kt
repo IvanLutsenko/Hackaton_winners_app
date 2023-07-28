@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 data class TaxesResponse(
     @Expose
     @SerializedName(value = "todo1")
-    val orders: List<TaxDataModel>?
+    val taxes: List<TaxDataModel>?
 )

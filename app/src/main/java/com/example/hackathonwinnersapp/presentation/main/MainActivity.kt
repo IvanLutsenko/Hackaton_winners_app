@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_orders.AllOrdersFragment
+import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_taxes.AllTaxesFragment
 import com.example.hackathonwinnersapp.presentation.utils.ActivityViewPagerAdapter
 import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.ActivityMainBinding
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun initTabLayout() {
         val viewPagerFragmentsList = listOf(
             AllOrdersFragment(),
-            SecondFragment()
+            AllTaxesFragment()
         )
 
         val tabLayoutMediator =

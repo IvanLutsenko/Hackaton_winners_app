@@ -16,10 +16,12 @@ abstract class BaseViewModel :
     private val _isInProgress = MutableStateFlow(false)
     private val _toastText = MutableStateFlow<StringResource>(strRes(""))
     private val _baseSideEffects = Channel<BaseSideEffect>(Channel.BUFFERED)
+    private val _errorMessage = MutableStateFlow<StringResource?>(null)
 
     val isInProgress = _isInProgress.asStateFlow()
     val toastText = _toastText.asStateFlow()
     val baseSideEffects = _baseSideEffects.receiveAsFlow()
+    val errorMessage = _errorMessage.asStateFlow()
 
     fun setProgress(inProgress: Boolean) {
         _isInProgress.value = inProgress
@@ -32,4 +34,6 @@ abstract class BaseViewModel :
     suspend fun onError(throwable: Throwable) = viewModelScope.launch {
         setToastText(strRes(throwable.localizedMessage ?: ""))
     }
+
+    fun onErrorShown() = _errorMessage.value == null
 }

@@ -20,5 +20,6 @@
     <string name="executor_orders">Заказы</string>
     <string name="executor_payments">Выплаты</string>
     <string name="executor_taxes">Налоги</string>
+    <string name="pay">Оплатить</string>
 
 </resources>

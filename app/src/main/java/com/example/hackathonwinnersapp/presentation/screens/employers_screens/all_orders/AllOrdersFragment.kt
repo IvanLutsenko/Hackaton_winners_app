@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hackathonwinnersapp.domain.models.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
 import com.example.hackathonwinnersapp.presentation.adapterDelegates.ordersAdapterDelegate
 import com.example.hackathonwinnersapp.presentation.base.BaseFragment
 import com.example.hackathonwinnersapp.presentation.diff_utils.OrdersDiffUtil
@@ -47,7 +47,6 @@ class AllOrdersFragment : BaseFragment<AllOrdersViewModel, FragmentAllOrdersBind
                         .show()
                     viewModel.onErrorShown()
                 }
-
             }
 
             with(binding) {
