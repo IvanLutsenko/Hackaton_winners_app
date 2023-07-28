@@ -3,4 +3,7 @@
     <string name="plus">+</string>
     <string name="all_orders">Все заказы</string>
     <string name="all_taxes">Все налоги</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
+    <string name="network_error">Проверьте подключение к сети</string>
+
 </resources>
