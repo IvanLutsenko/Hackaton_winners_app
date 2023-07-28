@@ -8,4 +8,6 @@
 
     <color name="colorAccent">#03DAC5</color>
     <color name="colorRipple">#26000000</color>
+
+    <color name="backgroundTransient">#00ffffff</color>
 </resources>

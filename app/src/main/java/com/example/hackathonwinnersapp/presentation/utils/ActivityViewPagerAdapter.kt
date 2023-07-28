@@ -1,10 +1,10 @@
-package com.example.hackathonwinnersapp.presentation.main.adapter
+package com.example.hackathonwinnersapp.presentation.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class MainViewPagerAdapter(
+class ActivityViewPagerAdapter(
     activity: AppCompatActivity,
     private val items: List<Fragment>
 ) : FragmentStateAdapter(activity) {

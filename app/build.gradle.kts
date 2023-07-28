@@ -63,6 +63,7 @@ dependencies {
 
     //DI
     implementation(libs.hilt.android)
+    implementation(libs.legacy.support.v4)
     kapt(libs.hilt.android.compiler)
 
     //Logging
