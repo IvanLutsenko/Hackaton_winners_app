@@ -3,9 +3,7 @@ package com.example.hackathonwinnersapp.presentation.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.hackathonwinnersapp.presentation.main.adapter.MainViewPagerAdapter
-import com.example.hackathonwinnersapp.presentation.utils.IS_ORDER
-import com.example.hackathonwinnersapp.presentation.utils.IS_TAXES
+import com.example.hackathonwinnersapp.presentation.utils.ActivityViewPagerAdapter
 import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -31,12 +29,13 @@ class MainActivity : AppCompatActivity() {
         val tabLayoutMediator =
                 TabLayoutMediator(binding.mainTabsLayout.tabLayout, binding.mainTabsLayout.viewPager) { tab, position ->
                     tab.text = when (position) {
-                        IS_ORDER -> resources.getString(R.string.all_orders)
-                        IS_TAXES -> resources.getString(R.string.all_taxes)
+                        MainTabType.ORDER.ordinal -> resources.getString(R.string.all_orders)
+                        MainTabType.TAXES.ordinal -> resources.getString(R.string.all_taxes)
                         else -> String.toString()
                     }
                 }
-        binding.mainTabsLayout.viewPager.adapter = MainViewPagerAdapter(this, viewPagerFragmentsList)
+        binding.mainTabsLayout.viewPager.adapter =
+            ActivityViewPagerAdapter(this, viewPagerFragmentsList)
         tabLayoutMediator.attach()
     }
 }

@@ -1,9 +1,24 @@
 <resources>
     <string name="app_name">Hackathon winners\' app</string>
     <string name="plus">+</string>
+
+    <!-- Main Activity -->
     <string name="all_orders">Все заказы</string>
     <string name="all_taxes">Все налоги</string>
     <string name="unknown_error">Неизвестная ошибка</string>
     <string name="network_error">Проверьте подключение к сети</string>
+
+    <!-- Order Dialog -->
+    <string name="order_dialog_title">Добавить заказ</string>
+    <string name="order_dialog_name_title">Название</string>
+    <string name="order_dialog_cost_title">Цена</string>
+    <string name="order_dialog_add">Добавить</string>
+    <string name="order_dialog_cancel">Отмена</string>
+
+    <!-- Executor Fragment -->
+    <string name="executor_title">Исполнитель</string>
+    <string name="executor_orders">Заказы</string>
+    <string name="executor_payments">Выплаты</string>
+    <string name="executor_taxes">Налоги</string>
 
 </resources>
