@@ -11,10 +11,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.example.hackathonwinnersapp.util.StringResource
+import com.example.hackathonwinnersapp.util.getString
 import com.example.hackatonwinnersapp.databinding.FragmentBaseBinding
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import ru.awac.cBoRRates.util.getString
 
 abstract class BaseFragment<T : BaseViewModel, V : ViewBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> V,
