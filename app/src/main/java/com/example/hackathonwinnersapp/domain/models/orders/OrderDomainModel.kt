@@ -1,4 +1,4 @@
-package com.example.hackathonwinnersapp.domain.models
+package com.example.hackathonwinnersapp.domain.models.orders
 
 import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus

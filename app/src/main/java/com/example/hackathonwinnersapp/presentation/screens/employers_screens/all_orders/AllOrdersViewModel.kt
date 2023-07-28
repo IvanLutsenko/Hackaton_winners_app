@@ -3,10 +3,9 @@ package com.example.hackathonwinnersapp.presentation.screens.employers_screens.a
 import androidx.lifecycle.viewModelScope
 import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
-import com.example.hackathonwinnersapp.domain.interators.OrdersInteractor
-import com.example.hackathonwinnersapp.domain.models.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.interactors.Interactor
+import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
 import com.example.hackathonwinnersapp.presentation.base.BaseViewModel
-import com.example.hackathonwinnersapp.util.StringResource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,16 +14,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AllOrdersViewModel @Inject constructor(
-    private val ordersInteractor: OrdersInteractor
+    private val interactor: Interactor
 ) : BaseViewModel() {
 
     private val _orders = MutableStateFlow<List<OrderDomainModel>>(emptyList())
     val orders = _orders.asStateFlow()
 
-    private val _errorMessage = MutableStateFlow<StringResource?>(null)
-    val errorMessage = _errorMessage.asStateFlow()
-
-    val mockOrders = listOf(
+    private val mockOrders = listOf(
         OrderDomainModel(
             id = 1,
             name = "заказ 1",
@@ -72,11 +68,10 @@ class AllOrdersViewModel @Inject constructor(
 
     fun onActionButtonClick(order: OrderDomainModel) = Unit
 
-    fun onErrorShown() = _errorMessage.value == null
-
     private suspend fun getOrders() {
         _orders.value = mockOrders
-//        when (val request = ordersInteractor.getAllOrders()) {
+
+//        when (val request = interactor.getAllOrders()) {
 //            is RequestResult.Success -> {
 //                _orders.value = request.body.orders
 //                _errorMessage.value = null
@@ -86,6 +81,4 @@ class AllOrdersViewModel @Inject constructor(
 //                _errorMessage.value = request.message
 //        }
     }
-
-
 }

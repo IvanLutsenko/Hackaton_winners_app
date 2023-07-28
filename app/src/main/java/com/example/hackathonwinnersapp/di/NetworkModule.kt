@@ -3,7 +3,7 @@ package com.example.hackathonwinnersapp.di
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.example.hackathonwinnersapp.data.network.api.OrdersApiService
+import com.example.hackathonwinnersapp.data.network.api.ApiService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -55,11 +55,11 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOrdersApiService(builder: Retrofit.Builder): OrdersApiService {
+    fun provideOrdersApiService(builder: Retrofit.Builder): ApiService {
         return builder
             .baseUrl("https://www.to.do")
             .build()
-            .create(OrdersApiService::class.java)
+            .create(ApiService::class.java)
     }
 
     companion object {

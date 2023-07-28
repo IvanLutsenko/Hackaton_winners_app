@@ -1,9 +1,10 @@
 package com.example.hackathonwinnersapp.data.network.api
 
 import com.example.hackathonwinnersapp.data.network.models.OrdersResponse
+import com.example.hackathonwinnersapp.data.network.models.TaxesResponse
 import retrofit2.http.GET
 
-interface OrdersApiService {
+interface ApiService {
 
     @GET("/to.do")
     suspend fun getAllOrders(): OrdersResponse
@@ -13,7 +14,8 @@ interface OrdersApiService {
     @GET("/to.do/{id, info: String}")
     suspend fun getInfoByEmployee(): OrdersResponse // заказы, налоги, выплаты
 
-    // getAllTaxes()
+    @GET("/too.doo")
+    suspend fun getAllTaxes(): TaxesResponse
 
     // changeTaxStatus(order(id, employee, status)) - создание, назначение, отмена, оплата
 
