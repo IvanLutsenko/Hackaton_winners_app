@@ -68,6 +68,9 @@ dependencies {
 
     //Logging
     implementation(libs.timber)
+    debugImplementation(libs.library)
+    releaseImplementation(libs.library.no.op)
+
 
     // RecyclerView
     implementation(libs.adapterdelegates4.kotlin.dsl)
@@ -78,4 +81,5 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
+
 }
