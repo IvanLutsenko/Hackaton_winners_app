@@ -13,10 +13,21 @@ enum class OrderStatus {
             return when (typeName) {
                 "new" -> NEW
                 "in_progress" -> IN_PROGRESS
-                "fullfiled" -> FULFILLED
+                "fulfilled" -> FULFILLED
                 "payed" -> PAYED
                 "cancelled" -> CANCELLED
                 else -> UNIDENTIFIED
+            }
+        }
+
+        fun getName(status: OrderStatus): String {
+            return when (status) {
+                NEW -> "Новый"
+                IN_PROGRESS -> "В работе"
+                FULFILLED -> "Выполнен"
+                PAYED -> "Оплачен"
+                CANCELLED -> "Отменен"
+                UNIDENTIFIED -> "ашипка :("
             }
         }
     }
