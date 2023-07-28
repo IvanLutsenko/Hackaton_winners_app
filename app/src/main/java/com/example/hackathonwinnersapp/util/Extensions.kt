@@ -1,4 +1,4 @@
-package ru.awac.cBoRRates.util
+package com.example.hackathonwinnersapp.util
 
 import android.content.Context
 import android.os.Build
@@ -9,8 +9,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hackathonwinnersapp.util.CustomDividerItemDecorator
-import com.example.hackathonwinnersapp.util.StringResource
 import com.example.hackatonwinnersapp.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
