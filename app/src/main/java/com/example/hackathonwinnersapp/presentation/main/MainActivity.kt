@@ -3,11 +3,14 @@ package com.example.hackathonwinnersapp.presentation.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_orders.AllOrdersFragment
 import com.example.hackathonwinnersapp.presentation.utils.ActivityViewPagerAdapter
 import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
@@ -22,18 +25,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun initTabLayout() {
         val viewPagerFragmentsList = listOf(
-                FirstFragment(),
-                SecondFragment()
+            AllOrdersFragment(),
+            SecondFragment()
         )
 
         val tabLayoutMediator =
-                TabLayoutMediator(binding.mainTabsLayout.tabLayout, binding.mainTabsLayout.viewPager) { tab, position ->
-                    tab.text = when (position) {
-                        MainTabType.ORDER.ordinal -> resources.getString(R.string.all_orders)
-                        MainTabType.TAXES.ordinal -> resources.getString(R.string.all_taxes)
-                        else -> String.toString()
-                    }
+            TabLayoutMediator(
+                binding.mainTabsLayout.tabLayout,
+                binding.mainTabsLayout.viewPager
+            ) { tab, position ->
+                tab.text = when (position) {
+                    MainTabType.ORDER.ordinal -> resources.getString(R.string.all_orders)
+                    MainTabType.TAXES.ordinal -> resources.getString(R.string.all_taxes)
+                    else -> String.toString()
                 }
+            }
         binding.mainTabsLayout.viewPager.adapter =
             ActivityViewPagerAdapter(this, viewPagerFragmentsList)
         tabLayoutMediator.attach()

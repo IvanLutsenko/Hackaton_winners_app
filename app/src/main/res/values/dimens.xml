@@ -14,7 +14,7 @@
     <dimen name="margin_big_plus">33dp</dimen>
     <dimen name="margin_big_plus_plus">44dp</dimen>
     <dimen name="margin_big_plus_plus_plus">52dp</dimen>
-    <dimen name="margin_huge">150dp</dimen>
+    <dimen name="margin_huge">120dp</dimen>
 
     <dimen name="standard_text_size">14sp</dimen>
     <dimen name="m_text_size">16sp</dimen>
