@@ -1,8 +1,8 @@
 package com.example.hackathonwinnersapp.domain.models
 
-import com.example.hackathonwinnersapp.domain.Enums.Status
+import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
 
 data class OrderDomainModel(
     val name: String,
-    val status: Status
+    val status: OrderStatus
 )
