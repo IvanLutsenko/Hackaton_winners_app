@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.hackathonwinnersapp.domain.model.ExecutorTabsData
 import com.example.hackathonwinnersapp.presentation.ui.executor.tab.ExecutorTabType
-import com.example.hackathonwinnersapp.presentation.ui.executor.tab.ExecutorTabsData
 import com.example.hackathonwinnersapp.presentation.utils.FragmentViewPagerAdapter
 import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.FragmentExecutorBinding

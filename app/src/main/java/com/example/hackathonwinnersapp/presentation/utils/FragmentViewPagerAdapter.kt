@@ -3,9 +3,9 @@ package com.example.hackathonwinnersapp.presentation.utils
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.hackathonwinnersapp.domain.model.ExecutorTabsData
 import com.example.hackathonwinnersapp.presentation.ui.executor.tab.ExecutorTabFragment
 import com.example.hackathonwinnersapp.presentation.ui.executor.tab.ExecutorTabFragment.Companion.EXECUTOR_TAB_TYPE_TAG
-import com.example.hackathonwinnersapp.presentation.ui.executor.tab.ExecutorTabsData
 
 class FragmentViewPagerAdapter(
     fragment: Fragment,
