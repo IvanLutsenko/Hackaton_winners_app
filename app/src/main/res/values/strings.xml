@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">Hackathon winners\' app</string>
     <string name="plus">+</string>
+    <string name="remove">Удалить</string>
+    <string name="close">Закрыть</string>
+    <string name="save">Сохранить</string>
 
     <!-- Main Activity -->
     <string name="all_orders">Все заказы</string>
     <string name="all_taxes">Все налоги</string>
+    <string name="all_executors">Все исполнители</string>
     <string name="unknown_error">Неизвестная ошибка</string>
     <string name="network_error">Проверьте подключение к сети</string>
 
@@ -17,9 +21,19 @@
 
     <!-- Executor Fragment -->
     <string name="executor_title">Исполнитель</string>
+    <string name="add_executor_title">Добавить Исполнителя</string>
+    <string name="add_executor_name">Имя</string>
+    <string name="add_executor_iin">ИИН</string>
     <string name="executor_orders">Заказы</string>
     <string name="executor_payments">Выплаты</string>
     <string name="executor_taxes">Налоги</string>
     <string name="pay">Оплатить</string>
+
+    <!-- Taxes Details -->
+    <string name="taxes_details_title">Детали</string>
+    <string name="taxes_details_name">Название налога</string>
+
+    <!-- Count Taxes -->
+    <string name="count_taxes_title">Подсчитать налоги</string>
 
 </resources>

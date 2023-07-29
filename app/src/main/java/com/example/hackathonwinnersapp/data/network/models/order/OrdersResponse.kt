@@ -1,4 +1,4 @@
-package com.example.hackathonwinnersapp.data.network.models
+package com.example.hackathonwinnersapp.data.network.models.order
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

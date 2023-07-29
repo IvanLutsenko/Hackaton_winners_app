@@ -5,11 +5,15 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderRequestModel
 import com.example.hackathonwinnersapp.presentation.adapterDelegates.ordersAdapterDelegate
 import com.example.hackathonwinnersapp.presentation.base.BaseFragment
 import com.example.hackathonwinnersapp.presentation.diff_utils.OrdersDiffUtil
+import com.example.hackathonwinnersapp.presentation.ui.dialog.initDialogToAddOrder
+import com.example.hackathonwinnersapp.presentation.ui.executor.ExecutorFragment
 import com.example.hackathonwinnersapp.util.launchCollect
 import com.example.hackathonwinnersapp.util.repeatOnStart
+import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.FragmentAllOrdersBinding
 import com.google.android.material.snackbar.Snackbar
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
@@ -19,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class AllOrdersFragment : BaseFragment<AllOrdersViewModel, FragmentAllOrdersBinding>(
     FragmentAllOrdersBinding::inflate
 ) {
+
     override val viewModel: AllOrdersViewModel by viewModels()
 
     private var _ordersAdapter: AsyncListDifferDelegationAdapter<OrderDomainModel>? = null
@@ -31,7 +36,7 @@ class AllOrdersFragment : BaseFragment<AllOrdersViewModel, FragmentAllOrdersBind
             OrdersDiffUtil(),
             ordersAdapterDelegate(
                 onOrderClick = { viewModel.onOrderClick(it) },
-                onEmployeeClick = { viewModel.onEmployeeClick(it) },
+                onEmployeeClick = { onEmployeeClick() },
                 onActionButtonClick = { viewModel.onActionButtonClick(it) }
             )
         )
@@ -50,14 +55,29 @@ class AllOrdersFragment : BaseFragment<AllOrdersViewModel, FragmentAllOrdersBind
             }
 
             with(binding) {
-
                 with(orders) {
                     layoutManager = LinearLayoutManager(requireContext())
                     adapter = ordersAdapter
                 }
             }
+        }
 
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
+        binding.addOrder.root.setOnClickListener {
+            this.initDialogToAddOrder(
+                title = getString(R.string.order_dialog_title),
+                firstTvHint = getString(R.string.order_dialog_name_title),
+                secondTvHint = getString(R.string.order_dialog_cost_title)
+            ) { name, cost ->
+                viewModel.addOrder(OrderRequestModel(name, cost.toInt()))
+            }
         }
     }
 
+    private fun onEmployeeClick() {
+        ExecutorFragment.build().show(childFragmentManager, null)
+    }
 }

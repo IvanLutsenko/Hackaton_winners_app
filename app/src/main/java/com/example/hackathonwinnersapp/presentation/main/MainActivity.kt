@@ -2,7 +2,7 @@ package com.example.hackathonwinnersapp.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_executors.AllExecutorsFragment
 import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_orders.AllOrdersFragment
 import com.example.hackathonwinnersapp.presentation.screens.employers_screens.all_taxes.AllTaxesFragment
 import com.example.hackathonwinnersapp.presentation.utils.ActivityViewPagerAdapter
@@ -25,28 +25,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initTabLayout() {
-        val viewPagerFragmentsList = listOf(
+        listOf(
             AllOrdersFragment(),
-            AllTaxesFragment()
-        )
-
-        val tabLayoutMediator =
-            TabLayoutMediator(
+            AllTaxesFragment(),
+            AllExecutorsFragment()
+        ).apply {
+            val tabLayoutMediator = TabLayoutMediator(
                 binding.mainTabsLayout.tabLayout,
                 binding.mainTabsLayout.viewPager
             ) { tab, position ->
                 tab.text = when (position) {
                     MainTabType.ORDER.ordinal -> resources.getString(R.string.all_orders)
                     MainTabType.TAXES.ordinal -> resources.getString(R.string.all_taxes)
+                    MainTabType.EXECUTORS.ordinal -> resources.getString(R.string.all_executors)
                     else -> String.toString()
                 }
             }
-        binding.mainTabsLayout.viewPager.adapter =
-            ActivityViewPagerAdapter(this, viewPagerFragmentsList)
-        tabLayoutMediator.attach()
+
+            binding.mainTabsLayout.viewPager.adapter =
+                ActivityViewPagerAdapter(this@MainActivity, this)
+            tabLayoutMediator.attach()
+        }
     }
 }
-
-//Todo заменить, просто пример
-class FirstFragment : Fragment(R.layout.fragment_base)
-class SecondFragment : Fragment(R.layout.fragment_base)

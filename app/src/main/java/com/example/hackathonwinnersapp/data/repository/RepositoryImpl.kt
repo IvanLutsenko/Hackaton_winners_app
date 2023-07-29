@@ -5,7 +5,10 @@ import com.example.hackathonwinnersapp.data.utils.NetworkCallResult
 import com.example.hackathonwinnersapp.data.utils.safeApiCall
 import com.example.hackathonwinnersapp.di.annotations.IoDispatcher
 import com.example.hackathonwinnersapp.domain.mappers.toDomain
+import com.example.hackathonwinnersapp.domain.models.executor.MappedExecutorsResponse
 import com.example.hackathonwinnersapp.domain.models.orders.MappedOrderResponse
+import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderRequestModel
 import com.example.hackathonwinnersapp.domain.models.taxes.MappedTaxesResponse
 import com.example.hackathonwinnersapp.domain.repositories.Repository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -21,10 +24,23 @@ class RepositoryImpl @Inject constructor(
         apiCall = { apiService.getAllOrders().toDomain() }
     )
 
-
     override suspend fun getAllTaxes(): NetworkCallResult<MappedTaxesResponse> = safeApiCall(
         dispatcher = dispatcher,
         onNullValue = { NetworkCallResult.Error.Unknown() },
         apiCall = { apiService.getAllTaxes().toDomain() }
     )
+
+    override suspend fun getAllExecutors(): NetworkCallResult<MappedExecutorsResponse> =
+        safeApiCall(
+            dispatcher = dispatcher,
+            onNullValue = { NetworkCallResult.Error.Unknown() },
+            apiCall = { apiService.getEmployees().toDomain() }
+        )
+
+    override suspend fun addOrder(orderModel: OrderRequestModel): NetworkCallResult<OrderDomainModel> =
+        safeApiCall(
+            dispatcher = dispatcher,
+            onNullValue = { NetworkCallResult.Error.Unknown() },
+            apiCall = { apiService.addOrder(orderModel).toDomain() }
+        )
 }

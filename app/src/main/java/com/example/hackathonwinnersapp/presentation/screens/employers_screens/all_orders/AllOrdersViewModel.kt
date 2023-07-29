@@ -4,7 +4,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
 import com.example.hackathonwinnersapp.domain.interactors.Interactor
+import com.example.hackathonwinnersapp.domain.models.RequestResult
 import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
+import com.example.hackathonwinnersapp.domain.models.orders.OrderRequestModel
 import com.example.hackathonwinnersapp.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -64,8 +66,6 @@ class AllOrdersViewModel @Inject constructor(
 
     fun onOrderClick(order: OrderDomainModel) = Unit
 
-    fun onEmployeeClick(employee: EmployeeDataModel) = Unit
-
     fun onActionButtonClick(order: OrderDomainModel) = Unit
 
     private suspend fun getOrders() {
@@ -81,4 +81,21 @@ class AllOrdersViewModel @Inject constructor(
 //                _errorMessage.value = request.message
 //        }
     }
+
+    fun addOrder(order: OrderRequestModel) {
+        viewModelScope.launch {
+            when (val request = interactor.addOrder(order)) {
+                is RequestResult.Success -> {
+//                _orders.value = request.body.orders
+//                _errorMessage.value = null
+                }
+
+                is RequestResult.Error -> {
+//                _errorMessage.value = request.message
+                }
+            }
+        }
+    }
+
+
 }
