@@ -9,8 +9,8 @@ import com.example.hackathonwinnersapp.domain.models.orders.OrderRequestModel
 import com.example.hackathonwinnersapp.presentation.adapterDelegates.ordersAdapterDelegate
 import com.example.hackathonwinnersapp.presentation.base.BaseFragment
 import com.example.hackathonwinnersapp.presentation.diff_utils.OrdersDiffUtil
+import com.example.hackathonwinnersapp.presentation.ui.dialog.initDialogToAddOrder
 import com.example.hackathonwinnersapp.presentation.ui.executor.ExecutorFragment
-import com.example.hackathonwinnersapp.presentation.ui.order_popup.initDialogToAddOrder
 import com.example.hackathonwinnersapp.util.launchCollect
 import com.example.hackathonwinnersapp.util.repeatOnStart
 import com.example.hackatonwinnersapp.R
@@ -67,17 +67,17 @@ class AllOrdersFragment : BaseFragment<AllOrdersViewModel, FragmentAllOrdersBind
 
     private fun setOnClickListeners() {
         binding.addOrder.root.setOnClickListener {
-            this.initDialogToAddOrder { name, cost ->
+            this.initDialogToAddOrder(
+                title = getString(R.string.order_dialog_title),
+                firstTvHint = getString(R.string.order_dialog_name_title),
+                secondTvHint = getString(R.string.order_dialog_cost_title)
+            ) { name, cost ->
                 viewModel.addOrder(OrderRequestModel(name, cost.toInt()))
             }
         }
     }
 
     private fun onEmployeeClick() {
-        requireActivity()
-            .supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_container, ExecutorFragment())
-            .commit()
+        ExecutorFragment.build().show(childFragmentManager, null)
     }
 }

@@ -50,10 +50,6 @@ class AllTaxesViewModel @Inject constructor(
         viewModelScope.launch { getTaxes() }
     }
 
-    fun onTaxClick(tax: TaxDomainModel) = Unit
-
-    fun onActionButtonClick(tax: TaxDomainModel) = Unit
-
     private suspend fun getTaxes() {
         _taxes.value = mockTaxes
 

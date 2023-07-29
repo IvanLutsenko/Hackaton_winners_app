@@ -1,5 +1,6 @@
 package com.example.hackathonwinnersapp.data.network.api
 
+import com.example.hackathonwinnersapp.data.network.models.EmployeesResponse
 import com.example.hackathonwinnersapp.data.network.models.TaxesResponse
 import com.example.hackathonwinnersapp.data.network.models.order.OrderDataModel
 import com.example.hackathonwinnersapp.data.network.models.order.OrdersResponse
@@ -28,7 +29,8 @@ interface ApiService {
 
     // changeTaxStatus(order(id, employee, status)) - создание, назначение, отмена, оплата
 
-    // getEmployees()
+    @GET("")
+    suspend fun getEmployees(): EmployeesResponse
 
 
 }

@@ -1,10 +1,13 @@
 package com.example.hackathonwinnersapp.domain.mappers
 
 import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
+import com.example.hackathonwinnersapp.data.network.models.EmployeesResponse
 import com.example.hackathonwinnersapp.data.network.models.TaxesResponse
 import com.example.hackathonwinnersapp.data.network.models.order.OrderDataModel
 import com.example.hackathonwinnersapp.data.network.models.order.OrdersResponse
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
+import com.example.hackathonwinnersapp.domain.models.executor.ExecutorDomainModel
+import com.example.hackathonwinnersapp.domain.models.executor.MappedExecutorsResponse
 import com.example.hackathonwinnersapp.domain.models.orders.MappedOrderResponse
 import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
 import com.example.hackathonwinnersapp.domain.models.taxes.MappedTaxesResponse
@@ -46,6 +49,23 @@ fun TaxesResponse.toDomain(): MappedTaxesResponse {
 
     return MappedTaxesResponse(
         taxes = mappedTaxes
+    )
+}
+
+fun EmployeesResponse.toDomain(): MappedExecutorsResponse {
+    val mappedExecutors = mutableListOf<ExecutorDomainModel>()
+
+    employees?.forEach { executor ->
+        mappedExecutors.add(
+            ExecutorDomainModel(
+                id = executor.id.toString(),
+                name = executor.name.orEmptyField(),
+            )
+        )
+    }
+
+    return MappedExecutorsResponse(
+        executors = mappedExecutors
     )
 }
 

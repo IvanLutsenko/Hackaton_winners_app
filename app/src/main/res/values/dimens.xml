@@ -49,15 +49,16 @@
     <dimen name="l_text_size">18sp</dimen>
 
     <!-- Margins -->
-    <dimen name="size_16dp">16dp</dimen>
     <dimen name="size_8dp">8dp</dimen>
+    <dimen name="size_12dp">12dp</dimen>
+    <dimen name="size_24dp">24dp</dimen>
+    <dimen name="size_16dp">16dp</dimen>
 
     <!-- Text Sizes -->
     <dimen name="size_16sp">16sp</dimen>
 
-    <!-- Order dialog -->
-    <dimen name="max_length_7">7</dimen>
-    <dimen name="min_height_50">50</dimen>
+    <!-- Dialog -->
+    <dimen name="min_height_50">50dp</dimen>
 
 
 </resources>

@@ -21,6 +21,11 @@ class Interactor @Inject constructor(
         onFailed = { RequestResult.Error(it.message) }
     )
 
+    suspend fun getAllExecutors() = repository.getAllExecutors().handle(
+        onSuccess = { RequestResult.Success(it) },
+        onFailed = { RequestResult.Error(it.message) }
+    )
+
     suspend fun addOrder(order: OrderRequestModel) = repository.addOrder(order).handle(
         onSuccess = { RequestResult.Success(it) },
         onFailed = { RequestResult.Error(it.message) }
