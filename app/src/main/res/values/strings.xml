@@ -32,6 +32,7 @@
     <!-- Taxes Details -->
     <string name="taxes_details_title">Детали</string>
     <string name="taxes_details_name">Название налога</string>
+    <string name="taxes_details_executors">Начислено за исполнителей Татьяна, Олег, Ержан</string>
 
     <!-- Count Taxes -->
     <string name="count_taxes_title">Подсчитать налоги</string>

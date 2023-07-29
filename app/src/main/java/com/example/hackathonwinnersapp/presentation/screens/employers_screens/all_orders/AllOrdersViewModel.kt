@@ -33,28 +33,28 @@ class AllOrdersViewModel @Inject constructor(
         OrderDomainModel(
             id = 2,
             name = "заказ 2",
-            employee = EmployeeDataModel(id = 1, name = "Василий"),
+            employee = EmployeeDataModel(id = 1, name = "Ержан"),
             sum = 100500,
             status = OrderStatus.IN_PROGRESS,
         ),
         OrderDomainModel(
             id = 3,
             name = "заказ 4",
-            employee = EmployeeDataModel(id = 1, name = "Василий"),
+            employee = EmployeeDataModel(id = 1, name = "Ольга"),
             sum = 100500,
             status = OrderStatus.FULFILLED,
         ),
         OrderDomainModel(
             id = 4,
             name = "заказ 5",
-            employee = EmployeeDataModel(id = 1, name = "Василий"),
+            employee = EmployeeDataModel(id = 1, name = "Татьяна"),
             sum = 100500,
             status = OrderStatus.PAYED,
         ),
         OrderDomainModel(
             id = 5,
             name = "заказ 7",
-            employee = EmployeeDataModel(id = 1, name = "Василий"),
+            employee = EmployeeDataModel(id = 1, name = "Айнур"),
             sum = 100500,
             status = OrderStatus.CANCELLED
         )
