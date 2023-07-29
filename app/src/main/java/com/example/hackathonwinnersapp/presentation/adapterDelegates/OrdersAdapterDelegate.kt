@@ -1,11 +1,17 @@
 package com.example.hackathonwinnersapp.presentation.adapterDelegates
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.example.hackathonwinnersapp.data.network.models.EmployeeDataModel
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus
+import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.CANCELLED
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.FULFILLED
+import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.IN_PROGRESS
 import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.NEW
+import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.PAYED
+import com.example.hackathonwinnersapp.domain.Enums.OrderStatus.UNIDENTIFIED
 import com.example.hackathonwinnersapp.domain.models.orders.OrderDomainModel
+import com.example.hackatonwinnersapp.R
 import com.example.hackatonwinnersapp.databinding.ItemOrderBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.AdapterDelegateViewBindingViewHolder
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -51,6 +57,9 @@ private fun OrdersDelegateBindingViewHolder.bindExternally() {
         orderName.text = item.name
         employeeName.text = item.employee.name
         orderStatus.text = OrderStatus.getName(item.status)
+        orderStatus.setTextColor(
+            ContextCompat.getColor(context, getColorByStatus(item.status))
+        )
         val actionButtonText = setActionButtonText(item.status)
         actionButtonText?.let { orderActionButton.text = it }
             ?: run { orderActionButton.visibility = View.INVISIBLE }
@@ -63,3 +72,13 @@ private fun setActionButtonText(status: OrderStatus) = when (status) {
     FULFILLED -> "оплатить"
     else -> null
 }
+
+private fun getColorByStatus(status: OrderStatus) =
+    when (status) {
+        NEW -> R.color.blue
+        CANCELLED -> R.color.red
+        FULFILLED -> R.color.colorPrimary
+        UNIDENTIFIED -> R.color.red
+        IN_PROGRESS -> R.color.grey
+        PAYED -> R.color.colorPrimaryDark
+    }
