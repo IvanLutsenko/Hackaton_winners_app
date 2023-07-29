@@ -18,31 +18,36 @@ class AllTaxesViewModel @Inject constructor(
     private val _taxes = MutableStateFlow<List<TaxDomainModel>>(emptyList())
     val taxes = _taxes.asStateFlow()
 
+//    const taxSelectOptions = [
+//    {
+//        label: 'Пенсионные взносы',
+//        value: 'Пенсионные взносы'
+//    },
+//    {
+//        label: 'Взносы на обязательное мед.страхование',
+//        value: 'Взносы на обязательное мед.страхование'
+//    },
+//    {
+//        label: 'Подоходный налог',
+//        value: 'Подоходный налог'
+//    }
+//    ]
+
     private val mockTaxes = listOf(
         TaxDomainModel(
-            name = "Нолог 1",
+            name = "Подоходный налог ",
             isPayed = true,
-            sum = "1050"
+            sum = "5050606"
         ),
         TaxDomainModel(
-            name = "Нолог 2",
-            isPayed = true,
-            sum = "2060"
-        ),
-        TaxDomainModel(
-            name = "Нолог 4",
+            name = "Мед.страхование    ",
             isPayed = false,
-            sum = "4070"
+            sum = "42000"
         ),
         TaxDomainModel(
-            name = "Нолог 5",
-            isPayed = true,
-            sum = "5080"
-        ),
-        TaxDomainModel(
-            name = "Нолог 6",
+            name = "Пенсионные взносы",
             isPayed = false,
-            sum = "6090"
+            sum = "69000"
         )
     )
 

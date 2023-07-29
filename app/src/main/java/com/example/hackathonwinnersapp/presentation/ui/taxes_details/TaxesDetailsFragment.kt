@@ -12,11 +12,13 @@ class TaxesDetailsFragment : BaseDialog<FragmentTaxesDetailsBinding>(
         super.setUi()
 
         val bundle = this.arguments
-        if (bundle != null) {
-            binding.taxesDetailsName.text = bundle.getString(TAX_DETAILS_NAME)
-            binding.taxesDetailsPayment.text = bundle.getString(TAX_DETAILS_PAYED)
-                .plus(" ")
-                .plus(bundle.getString(TAX_DETAILS_SUM))
+        if (bundle != null) with(binding) {
+            taxesDetailsName.text = bundle.getString(TAX_DETAILS_NAME)
+            val taxesDetailsPaymentText =
+                if (bundle.getString(TAX_DETAILS_PAYED) == "true") "оплачено" else "неоплачено"
+                    .plus(" ")
+                    .plus(bundle.getString(TAX_DETAILS_SUM))
+            taxesDetailsPayment.text = taxesDetailsPaymentText
         }
 
         setOnClickListeners()
