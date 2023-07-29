@@ -21,23 +21,23 @@ class AllExecutorsViewModel @Inject constructor(
     private val mockExecutors = listOf(
         ExecutorDomainModel(
             id = "1",
-            name = "Нолог 1",
+            name = "Айнур",
         ),
         ExecutorDomainModel(
             id = "2",
-            name = "Нолог 2",
+            name = "Татьяна",
         ),
         ExecutorDomainModel(
             id = "3",
-            name = "Нолог 3",
+            name = "Ольга",
         ),
         ExecutorDomainModel(
             id = "4",
-            name = "Нолог 4",
+            name = "Ержан",
         ),
         ExecutorDomainModel(
             id = "5",
-            name = "Нолог 5",
+            name = "Василий",
         ),
     )
 
